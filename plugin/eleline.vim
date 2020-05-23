@@ -233,7 +233,7 @@ let s:colors = {
 			\   32  : '#88C0D0', 89  : '#88C0D0',
 			\
 			\   235 : '#272c36', 236 : '#2e3440', 237 : '#3b4252',
-			\   238 : '#4C566A', 239 : '#4e4e4e', 240 : '#6D7179',
+			\   238 : '#3B4252', 239 : '#4C566A', 240 : '#6D7179',
 			\   241 : '#606060', 242 : '#666666', 243 : '#767676',
 			\   244 : '#808080', 245 : '#8a8a8a', 246 : '#949494',
 			\   247 : '#9e9e9e', 248 : '#a8a8a8', 249 : '#d8dee9',
@@ -290,7 +290,7 @@ function! s:hi_statusline() abort
 	call s:hi('ElelineFsize'		,		[250 , s:bg+4] , [235 , ''] )
 	call s:hi('ElelineCurFname'   , [236 , 140] , [171 , '']	 , 'bold' )
 	call s:hi('ElelineGitBranch'  , [171 , s:bg+2] , [89  , '']	 , 'bold' )
-	call s:hi('ElelineGitStatus'  , [171, s:bg+2] , [89  , ''])
+	call s:hi('ElelineGitStatus'  , [89, s:bg+2] , [89  , ''])
 	call s:hi('ElelineError'		,		[197 , s:bg+2] , [197 , ''])
 	call s:hi('ElelineWarning'	,		[214 , s:bg+2] , [214 , ''])
 	call s:hi('ElelineVista'		,		[149 , s:bg+2] , [149 , ''])
@@ -301,12 +301,12 @@ function! s:hi_statusline() abort
 
 	call s:hi('Eleline7'		, [249 , s:bg+3], [237, ''] )
 	call s:hi('Eleline8'		, [250 , s:bg+4], [238, ''] )
-	call s:hi('Eleline9'		, [251 , s:bg+5], [239, ''] )
+	call s:hi('Eleline9'		, [251 , s:bg+6], [239, ''] )
 endfunction
 
 function! s:InsertStatuslineColor(mode) abort
 	if a:mode ==# 'i'
-		call s:hi('ElelineCurFname' , [251, 171] , [251, 171])
+		call s:hi('ElelineCurFname' , [235, 171] , [251, 171])
 	elseif a:mode ==# 'r'
 		call s:hi('ElelineCurFname' , [232, 160], [232, 160])
 	else
