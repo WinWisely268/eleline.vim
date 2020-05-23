@@ -1,7 +1,7 @@
 " ============================================================================
 " Filename: eleline.vim
 " Author: Liu-Cheng Xu
-" Fork: theniceboy
+" Fork: winwisely268
 " URL: https://github.com/liuchengxu/eleline.vim
 " License: MIT License
 " =============================================================================
@@ -109,11 +109,11 @@ function! ElelineGitBranch(...) abort
 		let s:jobs[job_id] = root
 	elseif exists('*jobstart')
 		let job_id = jobstart(s:git_branch_cmd, {
-			\ 'cwd': root,
-			\ 'stdout_buffered': v:true,
-			\ 'stderr_buffered': v:true,
-			\ 'on_exit': function('s:on_exit')
-			\})
+					\ 'cwd': root,
+					\ 'stdout_buffered': v:true,
+					\ 'stderr_buffered': v:true,
+					\ 'on_exit': function('s:on_exit')
+					\})
 		if job_id == 0 || job_id == -1 | return '' | endif
 		let s:jobs[job_id] = root
 	elseif exists('g:loaded_fugitive')
@@ -233,7 +233,7 @@ let s:colors = {
 			\   32  : '#88C0D0', 89  : '#88C0D0',
 			\
 			\   235 : '#272c36', 236 : '#2e3440', 237 : '#3b4252',
-			\   238 : '#444444', 239 : '#4e4e4e', 240 : '#585858',
+			\   238 : '#4C566A', 239 : '#4e4e4e', 240 : '#6D7179',
 			\   241 : '#606060', 242 : '#666666', 243 : '#767676',
 			\   244 : '#808080', 245 : '#8a8a8a', 246 : '#949494',
 			\   247 : '#9e9e9e', 248 : '#a8a8a8', 249 : '#d8dee9',
@@ -285,15 +285,15 @@ endfunction
 
 function! s:hi_statusline() abort
 	call s:hi('ElelineBufnrWinnr' , [232 , 178]	, [89 , '']  )
-	call s:hi('ElelineTotalBuf'   , [178 , s:bg+8] , [240 , ''] )
-	call s:hi('ElelinePaste'		, [232 , 178]	, [232 , 178]	, 'bold')
-	call s:hi('ElelineFsize'		, [250 , s:bg+6] , [235 , ''] )
+	call s:hi('ElelineTotalBuf'   , [178 , s:bg+6] , [240 , ''] )
+	call s:hi('ElelinePaste'		,		[232 , 178]	, [232 , 178]	, 'bold')
+	call s:hi('ElelineFsize'		,		[250 , s:bg+4] , [235 , ''] )
 	call s:hi('ElelineCurFname'   , [236 , 140] , [171 , '']	 , 'bold' )
-	call s:hi('ElelineGitBranch'  , [184 , s:bg+2] , [89  , '']	 , 'bold' )
-	call s:hi('ElelineGitStatus'  , [208 , s:bg+2] , [89  , ''])
-	call s:hi('ElelineError'		, [197 , s:bg+2] , [197 , ''])
-	call s:hi('ElelineWarning'	, [214 , s:bg+2] , [214 , ''])
-	call s:hi('ElelineVista'		, [149 , s:bg+2] , [149 , ''])
+	call s:hi('ElelineGitBranch'  , [171 , s:bg+2] , [89  , '']	 , 'bold' )
+	call s:hi('ElelineGitStatus'  , [171, s:bg+2] , [89  , ''])
+	call s:hi('ElelineError'		,		[197 , s:bg+2] , [197 , ''])
+	call s:hi('ElelineWarning'	,		[214 , s:bg+2] , [214 , ''])
+	call s:hi('ElelineVista'		,		[149 , s:bg+2] , [149 , ''])
 
 	if &bg ==# 'dark'
 		call s:hi('StatusLine' , [140 , s:bg+2], [140, ''] , 'none')
