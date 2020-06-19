@@ -3,6 +3,7 @@
 " Author: Liu-Cheng Xu
 " Fork: winwisely268
 " URL: https://github.com/liuchengxu/eleline.vim
+
 " License: MIT License
 " =============================================================================
 scriptencoding utf-8
@@ -14,7 +15,7 @@ let g:loaded_eleline = 1
 let s:save_cpo = &cpoptions
 set cpoptions&vim
 
-let s:font = get(g:, 'eleline_powerline_fonts', get(g:, 'airline_powerline_fonts', 0))
+let s:font = get(g:, 'eleline_powerline_fonts', get(g:, 'airline_powerline_fonts', 1))
 let s:fn_icon = s:font ? get(g:, 'eleline_function_icon', " \uf794 ") : ''
 let s:gui = has('gui_running')
 let s:is_win = has('win32')
@@ -296,12 +297,12 @@ function! s:hi_statusline() abort
 	call s:hi('ElelineVista'		,		[149 , s:bg+2] , [149 , ''])
 
 	if &bg ==# 'dark'
-		call s:hi('StatusLine' , [140 , s:bg+2], [140, ''] , 'none')
+		call s:hi('StatusLine' , [140 , s:bg+1], [140, ''] , 'none')
 	endif
 
-	call s:hi('Eleline7'		, [249 , s:bg+3], [237, ''] )
-	call s:hi('Eleline8'		, [250 , s:bg+4], [238, ''] )
-	call s:hi('Eleline9'		, [251 , s:bg+6], [239, ''] )
+	call s:hi('Eleline7'		, [249 , s:bg+6], [237, ''] )
+	call s:hi('Eleline8'		, [250 , s:bg+3], [238, ''] )
+	call s:hi('Eleline9'		, [251 , 89], [239, ''] )
 endfunction
 
 function! s:InsertStatuslineColor(mode) abort
